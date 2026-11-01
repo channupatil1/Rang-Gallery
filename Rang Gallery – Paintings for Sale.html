@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rang Gallery – Paintings for Sale</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3ead8;--fg:#2a1f14;--card:#fbf5e8;--mut:#e6d9bd;--mfg:#6b5a43;--bd:#cdb98f;--ac:#6e1f2a;--on:#fbf5e8;--gold:#b8923a;--mat:#efe6d0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1410;--fg:#efe4cc;--card:#241c15;--mut:#2e241a;--mfg:#bba98a;--bd:#4a3a26;--ac:#d4af61;--on:#1a1410;--gold:#d4af61;--mat:#150f0a}}
+:root[data-theme="dark"]{--bg:#1a1410;--fg:#efe4cc;--card:#241c15;--mut:#2e241a;--mfg:#bba98a;--bd:#4a3a26;--ac:#d4af61;--on:#1a1410;--gold:#d4af61;--mat:#150f0a}
+*,*:before,*:after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);scroll-behavior:smooth}
+body{margin:0;color:var(--fg);font:400 19px/1.65 "EB Garamond",Georgia,serif;background-color:var(--bg);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35 0 0 0 0 .27 0 0 0 0 .15 0 0 0 .1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+body:before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--bg)}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0;line-height:1.08}
+a{color:inherit}
+.w{max-width:1200px;margin:auto;padding:0 clamp(16px,4vw,40px)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:4px double var(--gold)}
+header .w{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:16px}
+.logo{font:italic 500 32px "Cormorant Garamond",Georgia,serif;text-decoration:none}
+nav{display:flex;gap:30px}
+nav a{text-decoration:none;color:var(--mfg);padding:10px 0;text-transform:uppercase;letter-spacing:.16em;font-size:13px;transition:color .25s}
+nav a:hover{color:var(--fg)}
+button{font:inherit;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 24px;border:1.5px solid var(--ac);background:var(--ac);color:var(--on);text-decoration:none;text-transform:uppercase;letter-spacing:.14em;font-size:13px;transition:opacity .25s,background .25s}
+.btn:hover{opacity:.88}
+.btn.o{background:transparent;color:var(--fg);border-color:var(--gold)}
+.btn.o:hover{background:var(--mut);opacity:1}
+.btn svg{width:18px;height:18px}
+:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
+.hero{margin-top:clamp(22px,4vw,44px);text-align:center;border:5px double var(--gold);padding:clamp(40px,7vw,88px) clamp(18px,5vw,60px)!important;max-width:1120px;width:calc(100% - 32px)}
+.kick{text-transform:uppercase;letter-spacing:.3em;font-size:13px;color:var(--mfg);margin-bottom:18px}
+.hero h1{font-style:italic;font-size:clamp(46px,8.4vw,108px);letter-spacing:-.01em;margin:0 auto;max-width:11ch}
+.hero p{color:var(--mfg);max-width:46ch;font-size:21px;font-style:italic;margin:22px auto 30px}
+.hero .r{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.orn{display:flex;align-items:center;gap:14px;max-width:340px;margin:16px auto 0}
+.orn:before,.orn:after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.orn:after{transform:scaleX(-1)}
+.orn i{width:9px;height:9px;border:1.5px solid var(--gold);transform:rotate(45deg)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(28px,5vw,56px);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);text-align:center}
+.steps div{padding:24px 20px;border-right:1px solid var(--bd)}
+.steps div:last-child{border:0}
+.steps b{display:block;font:italic 500 26px "Cormorant Garamond",serif}
+.steps span{color:var(--mfg);font-size:16px}
+section{padding:clamp(52px,7vw,92px) 0}
+.sh{display:flex;justify-content:center;text-align:center;margin-bottom:34px}
+.sh h2{font-size:clamp(38px,5.4vw,64px);font-style:italic}
+.sh p{color:var(--mfg);margin:14px 0 0;font-style:italic}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;margin-bottom:44px}
+.cat{display:flex;flex-direction:column;text-align:center;padding:8px;background:var(--card);color:var(--fg);border:1px solid var(--bd);transition:border-color .25s,transform .25s}
+.cat:hover{border-color:var(--gold);transform:translateY(-3px)}
+.cat[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+.cat i{display:block;height:78px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.cat span{padding:10px 6px 4px;font:italic 500 23px "Cormorant Garamond",serif}
+.cat small{display:block;color:var(--mfg);font:400 14px "EB Garamond",serif;text-transform:uppercase;letter-spacing:.12em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:48px 30px}
+.art{display:flex;flex-direction:column;text-align:center}
+.frame{padding:12px;background:var(--mat);border:14px solid #8a6a2a;border-image:linear-gradient(135deg,#f0d58a,#8a6a2a 35%,#e6c36a 55%,#6e5120 80%,#f0d58a) 1;box-shadow:0 18px 30px -14px rgba(0,0,0,.6),inset 0 0 14px rgba(0,0,0,.35)}
+.pic{aspect-ratio:4/5;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.4),inset 0 3px 12px rgba(0,0,0,.45)}
+.pic:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.04) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+.art h3{font-size:28px;font-style:italic;margin:20px 0 2px}
+.art .by{color:var(--mfg);font-size:16px}
+.art .by a{text-underline-offset:4px}
+.art .m{color:var(--mfg);font-size:15px;font-style:italic}
+.pr{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:10px}
+.pr b{font:500 26px "Cormorant Garamond",serif;letter-spacing:.04em}
+.pr button{min-height:44px;padding:0 20px;border:1.5px solid var(--ac);background:var(--ac);color:var(--on);text-transform:uppercase;letter-spacing:.12em;font-size:12.5px;transition:opacity .25s}
+.pr button:hover{opacity:.88}
+.pr button.on{background:transparent;color:var(--fg);border-color:var(--gold)}
+.artist{padding:42px 0;border-top:1px solid var(--gold)}
+.ah{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+.av{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:2px solid var(--gold);outline:1px solid var(--gold);outline-offset:3px;color:var(--fg);font:italic 500 30px "Cormorant Garamond",serif;flex:none}
+.ah h3{font-size:36px;font-style:italic}
+.ah p{margin:2px 0 0;color:var(--mfg);font-size:16px}
+.row{display:flex;gap:30px;overflow-x:auto;scroll-snap-type:x proximity;padding:6px 6px 24px;margin:0 -6px}
+.row .art{flex:0 0 min(240px,72vw);scroll-snap-align:start}
+.row .art h3{font-size:24px}
+.row:focus-visible{outline-offset:-3px}
+.ct{text-align:center}
+.ct h2{font-size:clamp(38px,5.6vw,68px);font-style:italic;margin-bottom:8px}
+.ct p{color:var(--mfg);max-width:46ch;margin:22px auto 26px;font-style:italic}
+.ct .r{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:20px}
+footer{border-top:4px double var(--gold);padding:28px 0;color:var(--mfg);font-size:15px;font-style:italic;text-align:center}
+dialog{background:var(--card);color:var(--fg);border:3px double var(--gold);width:min(480px,92vw);padding:28px}
+dialog::backdrop{background:rgba(10,6,2,.65)}
+dialog h2{font-size:36px;font-style:italic;margin-bottom:12px}
+dialog li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--bd)}
+dialog ul{list-style:none;margin:0 0 6px;padding:0}
+dialog li button{background:none;border:0;color:var(--mfg);min-width:44px;min-height:44px;font-size:18px}
+label{display:block;margin:14px 0 4px;font-size:16px}
+input,textarea{width:100%;font:inherit;padding:11px 12px;background:var(--bg);color:var(--fg);border:1.5px solid var(--bd)}
+.da{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;margin-top:20px}
+.em{color:var(--mfg)}
+@media (max-width:760px){nav{display:none}.steps{grid-template-columns:1fr}.steps div{border:0;border-bottom:1px solid var(--bd)}.steps div:last-child{border:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="w">
+  <a class="logo" href="#top">Rang Gallery</a>
+  <nav aria-label="Main"><a href="#shop">Shop by category</a><a href="#artists">Artists</a><a href="#contact">Contact</a></nav>
+  <button class="btn" id="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 7a3 3 0 016 0"/></svg>Enquiry (<span id="n">0</span>)</button>
+</div></header>
+
+<main id="top">
+<div class="w hero"><div class="kick">A gallery of original paintings</div>
+  <h1>Paintings, made by hand.</h1>
+  <p>Original works from independent artists. Browse by category or by artist, then send one enquiry for the pieces you love.</p>
+  <div class="r"><a class="btn" href="#shop">Shop by category</a><a class="btn o" href="#artists">Meet the artists</a></div>
+</div>
+
+<div class="w"><div class="steps">
+  <div><b>I. Choose</b><span>Add paintings to your enquiry list.</span></div>
+  <div><b>II. Enquire</b><span>Send it by WhatsApp or email.</span></div>
+  <div><b>III. Pay and receive</b><span>Pay by UPI, then we ship it safely.</span></div>
+</div></div>
+
+<section id="shop"><div class="w">
+  <div class="sh"><div><h2>Shop by category</h2><div class="orn"><i></i></div><p id="cc">All paintings</p></div></div>
+  <div class="cats" id="cats"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="artists" style="padding-top:0"><div class="w">
+  <div class="sh"><div><h2>Our artists</h2><div class="orn"><i></i></div><p>Every artist’s paintings, in one row. Scroll sideways to see them all.</p></div></div>
+  <div id="ar"></div>
+</div></section>
+
+<section id="contact"><div class="w ct">
+  <h2>Find the right painting</h2><div class="orn"><i></i></div>
+  <p>Questions about a piece, size, framing or delivery? Message anytime.</p>
+  <div class="r">
+    <a class="btn" href="https://wa.me/919148500589" target="_blank" rel="noopener">WhatsApp us</a>
+    <a class="btn o" href="tel:+919148500589">+91 91485 00589</a>
+  </div>
+  <a href="mailto:patilchannu241@gmail.com">patilchannu241@gmail.com</a>
+</div></section>
+</main>
+
+<footer><div class="w">© Rang Gallery. Sample paintings, artists and prices are shown; real ones coming soon.</div></footer>
+
+<dialog id="dlg" aria-labelledby="dt">
+  <h2 id="dt">Your enquiry</h2>
+  <div id="list"></div>
+  <label for="nm">Your name</label><input id="nm" autocomplete="name">
+  <label for="msg">Message (optional)</label><textarea id="msg" rows="3"></textarea>
+  <div class="da">
+    <button class="btn o" id="close">Close</button>
+    <button class="btn o" id="wa">WhatsApp</button>
+    <button class="btn" id="send">Email enquiry</button>
+  </div>
+</dialog>
+
+<script>
+var EMAIL="patilchannu241@gmail.com",PHONE="919148500589";
+var CATS=["Landscape","Portraits","Abstract","Nature","Folk Art"];
+var ARTISTS=[
+{id:"ananya",n:"Ananya Rao",b:"Landscapes and nature studies in acrylic and watercolour."},
+{id:"ravi",n:"Ravi Hegde",b:"Folk traditions and portraits, painted in oils."},
+{id:"sana",n:"Sana Mirza",b:"Abstract colour fields and bold nature scenes."}];
+var ART=[
+{id:1,t:"Monsoon Over the Ghats",c:"Landscape",a:"ananya",m:"Acrylic on canvas, 24 × 30 in",p:18500,g:"linear-gradient(170deg,#2b4a6f,#6b9ab8 55%,#e6e0c8)"},
+{id:2,t:"Evening at the Lake",c:"Landscape",a:"ananya",m:"Oil on canvas, 20 × 24 in",p:16000,g:"linear-gradient(180deg,#f4b183,#c7685a 45%,#2c3e63)"},
+{id:3,t:"Banyan in Morning Mist",c:"Nature",a:"ananya",m:"Watercolour on paper, 16 × 20 in",p:9800,g:"radial-gradient(ellipse at 50% 100%,#2f6b4f,#8fb69a 50%,#e9efe6)"},
+{id:4,t:"Marigold Market",c:"Folk Art",a:"ravi",m:"Oil on canvas, 18 × 24 in",p:14200,g:"radial-gradient(circle at 30% 70%,#f5a400,#d8590f 45%,#5a1a3a)"},
+{id:5,t:"Warli Harvest",c:"Folk Art",a:"ravi",m:"Acrylic on canvas, 24 × 24 in",p:11500,g:"linear-gradient(160deg,#7a2e1d 0 50%,#f3e6cf 50%)"},
+{id:6,t:"The Weaver",c:"Portraits",a:"ravi",m:"Oil on canvas, 18 × 24 in",p:21000,g:"linear-gradient(135deg,#3b2a24,#9c6b4a 55%,#e3c9a4)"},
+{id:7,t:"Blue Hour No. 3",c:"Abstract",a:"sana",m:"Acrylic on canvas, 30 × 30 in",p:24000,g:"linear-gradient(200deg,#0d1b4c,#2d4bd6 50%,#8fb3ff)"},
+{id:8,t:"Ember Field",c:"Abstract",a:"sana",m:"Mixed media, 24 × 36 in",p:19500,g:"radial-gradient(circle at 70% 30%,#ffb347,#d8402b 45%,#2a0f2e)"},
+{id:9,t:"Peacock at Dawn",c:"Nature",a:"sana",m:"Acrylic on canvas, 20 × 20 in",p:12800,g:"linear-gradient(135deg,#0d5c63,#1fa38f 50%,#e0c341)"},
+{id:10,t:"Girl with the Lantern",c:"Portraits",a:"sana",m:"Oil on canvas, 16 × 20 in",p:17200,g:"radial-gradient(circle at 50% 40%,#f2c14e,#b5471f 55%,#2b1a1a)"}
+];
+var cat="All",q=[];
+try{q=JSON.parse(localStorage.getItem("rg_q2")||"[]")}catch(e){q=[]}
+var $=function(i){return document.getElementById(i)};
+function inr(n){return "₹"+n.toLocaleString("en-IN")}
+function save(){try{localStorage.setItem("rg_q2",JSON.stringify(q))}catch(e){}}
+function art(id){return ART.filter(function(a){return a.id===id})[0]}
+function who(id){return ARTISTS.filter(function(a){return a.id===id})[0]}
+function card(a){
+  var on=q.indexOf(a.id)>-1;
+  return '<article class="art"><div class="frame"><div class="pic" role="img" aria-label="'+a.t+', '+a.m+'" style="background:'+a.g+'"></div></div>'+
+  '<h3>'+a.t+'</h3><div class="by">by <a href="#ar-'+a.a+'">'+who(a.a).n+'</a></div><div class="m">'+a.m+'</div>'+
+  '<div class="pr"><b>'+inr(a.p)+'</b><button class="'+(on?'on':'')+'" data-id="'+a.id+'">'+(on?'Remove':'Add to enquiry')+'</button></div></article>'}
+function catTiles(){
+  var all=[{k:"All",g:"linear-gradient(90deg,#2b4a6f,#d8590f,#1fa38f,#2d4bd6)",n:ART.length}].concat(CATS.map(function(c){
+    var l=ART.filter(function(a){return a.c===c});return {k:c,g:l[0].g,n:l.length}}));
+  $("cats").innerHTML=all.map(function(c){
+    return '<button class="cat" data-cat="'+c.k+'" aria-pressed="'+(c.k===cat)+'"><i style="background:'+c.g+'"></i><span>'+(c.k==="All"?"All paintings":c.k)+'<small>'+c.n+' painting'+(c.n>1?'s':'')+'</small></span></button>'}).join("")}
+function draw(){
+  var l=ART.filter(function(a){return cat==="All"||a.c===cat});
+  $("grid").innerHTML=l.map(card).join("");
+  $("cc").textContent=cat==="All"?"All paintings":cat+" paintings";
+  $("ar").innerHTML=ARTISTS.map(function(r){
+    var l2=ART.filter(function(a){return a.a===r.id});
+    return '<div class="artist" id="ar-'+r.id+'"><div class="ah"><div class="av" aria-hidden="true">'+r.n.charAt(0)+'</div><div><h3>'+r.n+'</h3><p>'+r.b+' '+l2.length+' paintings.</p></div></div>'+
+    '<div class="row" tabindex="0" role="region" aria-label="Paintings by '+r.n+'">'+l2.map(card).join("")+'</div></div>'}).join("");
+  catTiles();$("n").textContent=q.length}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-id]");
+  if(b){var id=+b.getAttribute("data-id"),i=q.indexOf(id);if(i>-1)q.splice(i,1);else q.push(id);save();draw();return}
+  var c=e.target.closest("[data-cat]");
+  if(c){cat=c.getAttribute("data-cat");draw();$("grid").scrollIntoView({behavior:"smooth",block:"start"})}});
+function list(){
+  $("list").innerHTML=q.length?'<ul>'+q.map(function(id){var a=art(id);return '<li><span>'+a.t+' – '+inr(a.p)+'</span><button data-r="'+id+'" aria-label="Remove '+a.t+'">✕</button></li>'}).join("")+'</ul>':'<p class="em">Your list is empty. Add paintings, then send your enquiry.</p>'}
+$("list").onclick=function(e){var id=+e.target.getAttribute("data-r");if(!id)return;q.splice(q.indexOf(id),1);save();list();draw()};
+function text(){return "Hello, I’m "+($("nm").value||"a visitor")+" and I’d like to enquire about:\n"+q.map(function(id){var a=art(id);return "- "+a.t+" by "+who(a.a).n+" ("+inr(a.p)+")"}).join("\n")+"\n\n"+$("msg").value}
+function need(){if(q.length)return true;$("list").innerHTML='<p class="em">Add at least one painting before sending.</p>';return false}
+$("open").onclick=function(){list();$("dlg").showModal()};
+$("close").onclick=function(){$("dlg").close()};
+$("send").onclick=function(){if(need())location.href="mailto:"+EMAIL+"?subject="+encodeURIComponent("Painting enquiry")+"&body="+encodeURIComponent(text())};
+$("wa").onclick=function(){if(need())window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(text()),"_blank")};
+draw();
+</script>
+</body>
+</html>
